@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AppState } from '../../app.reducers';
 import { Store } from '@ngrx/store';
+import * as actions from '../contador.actions';
 
 @Component({
   selector: 'app-hijo',
@@ -23,11 +24,13 @@ export class HijoComponent {
   multiplicar() {
     // this.contador *= 2;
     // this.cambioContador.emit(this.contador);
+    this.store.dispatch(actions.multiplicar({ numero: 2 }));
   }
 
   dividir() {
     // this.contador /= 2;
     // this.cambioContador.emit(this.contador);
+    this.store.dispatch(actions.dividir({ numero: 2 }));
   }
 
   resetNieto(nuevoContador: number) {
